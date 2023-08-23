@@ -1,9 +1,7 @@
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -24,20 +22,11 @@ public class SaveFile {
     }
 
 
-    private String userInput(){
 
-        this.scanner = new Scanner(System.in);
 
-        message("Enter your note and press enter");
+    public String dateAndNoteForFile(String userInput){
 
-        String input = this.scanner.nextLine();
-
-        return input;
-    }
-
-    public String dateAndNoteForFile(){
-
-        String note = userInput();
+        String note = userInput;
 
         SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
         Date date = new Date();
@@ -45,15 +34,15 @@ public class SaveFile {
 
         System.out.println("\nFollowing is registered: \n");
 
-        String dateAndNoteRegistered = "date: " + dateFormatted + " note: " + note;
+        String dateAndNoteRegistered = "date: " + dateFormatted + ", note: " + note;
         System.out.println(dateAndNoteRegistered);
 
         return dateAndNoteRegistered;
     }
 
-    public void saveDateAndNote(String path){
+    public void saveDateAndNote(String path, String userInput){
 
-        String dateAndNote = dateAndNoteForFile();
+        String dateAndNote = dateAndNoteForFile(userInput);
 
         FileWriter fileWriter = null;
 
@@ -73,23 +62,12 @@ public class SaveFile {
                 for (String s : allRegisteredNotes){
                     allNotes += s + "\n";
                 }
-
-                fileWriter.write(dateAndNote+ "\n" + allNotes);
+                fileWriter.write(dateAndNote + "\n" + allNotes);
             }
-
             fileWriter.close();
-
         }
         catch (IOException e){
-            System.out.println("Something went wrong with saving data in file");
+            System.out.println("Something went wrong with saving the data");
         }
-
-
-
     }
-
-
-
-
-
 }
