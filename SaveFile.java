@@ -57,15 +57,16 @@ public class SaveFile {
 
         FileWriter fileWriter = null;
 
+        ReadFile filereader = new ReadFile();
+
         try{
-            List<String> allRegisteredNotes = SaveFile.getAll();
+            List<String> allRegisteredNotes = filereader.getAll();
 
             fileWriter = new FileWriter(path);
 
             if (allRegisteredNotes.size() == 0){
                 fileWriter.write(dateAndNote);
             }
-
             else {
                 String allNotes = "";
 
@@ -80,7 +81,7 @@ public class SaveFile {
 
         }
         catch (IOException e){
-            System.out.println("Something went wrong with writing to file");
+            System.out.println("Something went wrong with saving data in file");
         }
 
 
