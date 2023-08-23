@@ -21,7 +21,7 @@ public class Main{
             fileSaver.saveDateAndNote("data/tmp.txt", input);
             //TODO: add saveFile calls
         } else {
-            ReadFile reader = new ReadFile("../data/data.txt");
+            ReadFile reader = new ReadFile("data/tmp.txt");
             System.out.println("pres enter to read all, give date in\"dd-mm-yyyy\" format");
             input = scanner.nextLine();
             if(input.length() == 0){
