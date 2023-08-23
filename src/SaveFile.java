@@ -48,7 +48,7 @@ public class SaveFile {
 
         FileWriter fileWriter = null;
 
-        ReadFile filereader = new ReadFile();
+        ReadFile filereader = new ReadFile("data/tmp.txt");
 
         try{
             List<String> allRegisteredNotes = filereader.getAll();
