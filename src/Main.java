@@ -11,6 +11,14 @@ public class Main{
         String input = scanner.nextLine();
 
         if(input.equals("1")){
+
+            System.out.println("Enter your note and press enter");
+
+            input = scanner.nextLine();
+
+            SaveFile fileSaver = new SaveFile();
+
+            fileSaver.saveDateAndNote("data/tmp.txt", input);
             //TODO: add saveFile calls
         } else {
             ReadFile reader = new ReadFile("../data/data.txt");
